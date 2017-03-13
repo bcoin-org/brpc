@@ -38,7 +38,7 @@ socket.on('open', function() {
     console.log('Response for foo: ', items);
   });
   console.log('Sending bar...');
-  socket.dispatch('bar', [new Buffer('baz')]);
+  socket.fire('bar', [new Buffer('baz')]);
   console.log('Sending error...');
   socket.call('error', []).catch(function(err) {
     console.log('Response for error: ', err.message);

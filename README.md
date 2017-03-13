@@ -33,7 +33,7 @@ socket.on('open', function() {
     console.log('Response for foo: ', items);
   });
   console.log('Sending bar...');
-  socket.dispatch('bar', [new Buffer('baz')]);
+  socket.fire('bar', [new Buffer('baz')]);
 });
 ```
 
