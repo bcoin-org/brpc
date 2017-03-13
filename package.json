@@ -1,6 +1,6 @@
 {
   "name": "brpc",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "RPC bike-shed",
   "license": "MIT",
   "repository": "git://github.com/bcoin-org/brpc.git",
