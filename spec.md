@@ -9,12 +9,12 @@ of bidirectional communication (e.g. tcp sockets or web sockets).
 
 ``` c
 enum {
-  EVENT = 0;
-  CALL = 1;
-  ACK = 2;
-  ERROR = 3;
-  PING = 4;
-  PONG = 5;
+  EVENT = 0,
+  CALL = 1,
+  ACK = 2,
+  ERROR = 3,
+  PING = 4,
+  PONG = 5
 };
 ```
 
