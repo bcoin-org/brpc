@@ -67,7 +67,7 @@ typedef struct {
 ```
 
 Payloads are a collection of varint-prefixed byte arrays, using bitcoin varint
-encoding (otherwise known as "compact sizes"). These not _not_ base128 varints.
+encoding (otherwise known as "compact sizes"). These are _not_ base128 varints.
 
 ## Messages
 
