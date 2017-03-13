@@ -1,6 +1,6 @@
 'use strict';
 
-exports.WebSocket = require('./lib/http/backend');
+exports.ws = require('faye-websocket');
 exports.Server = require('./lib/http/server');
 exports.createServer = exports.Server.createServer;
 exports.attach = exports.Server.attach;
