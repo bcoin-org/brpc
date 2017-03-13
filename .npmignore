@@ -2,6 +2,7 @@
 bench/
 docs/
 test/
+browser/
 node_modules/
 .jshintrc
 .jscsrc
