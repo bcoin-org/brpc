@@ -1,0 +1,10 @@
+.git*
+bench/
+docs/
+test/
+node_modules/
+.jshintrc
+.jscsrc
+jsdoc.json
+brpc.js
+brpc.min.js

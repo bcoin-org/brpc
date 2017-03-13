@@ -1,0 +1,44 @@
+{
+  "name": "brpc",
+  "version": "0.0.1",
+  "description": "RPC bike-shed",
+  "license": "MIT",
+  "repository": "git://github.com/bcoin-org/brpc.git",
+  "homepage": "https://github.com/bcoin-org/brpc",
+  "bugs": {
+    "url": "https://github.com/bcoin-org/brpc/issues"
+  },
+  "author": "Christopher Jeffrey <chjjeffrey@gmail.com>",
+  "keywords": [
+    "brpc",
+    "rpc",
+    "tcp",
+    "http",
+    "websockets"
+  ],
+  "engines": {
+    "node": ">= 0.11.0"
+  },
+  "dependencies": {
+    "faye-websocket": "0.11.1"
+  },
+  "devDependencies": {
+    "browserify": "13.1.0",
+    "jsdoc": "3.4.0",
+    "jshint": "2.9.4",
+    "mocha": "3.0.2",
+    "uglify-js": "2.7.3"
+  },
+  "main": "./index.js",
+  "scripts": {
+    "test": "mocha --reporter spec test/*-test.js",
+    "browserify": "browserify -o brpc.js browser.js",
+    "uglify": "uglifyjs -m -o brpc.min.js brpc.js",
+    "clean": "rm brpc.js brpc.min.js",
+    "lint": "jshint lib/ || exit 0",
+    "docs": "jsdoc -c jsdoc.json"
+  },
+  "browser": {
+    "./lib/http/backend": "./lib/http/backend-browser.js"
+  }
+}
