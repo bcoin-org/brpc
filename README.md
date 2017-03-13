@@ -44,13 +44,13 @@ when needing to send binary data over a convential websocket protocol, the
 programmer is forced to use hex strings inside of the JSON serialization. This
 is inefficient.
 
-BRPC works only with binary data. Furthermore, most event-based abstractions on
-top of websockets introduce an enormous amount of bloat due to the inclusion of
-fallback transports (xhr, longpolling, etc) as well as even higher level
-abstractions (channels).
+Furthermore, most event-based abstractions on top of websockets introduce an
+enormous amount of bloat due to the inclusion of fallback transports (xhr,
+longpolling, etc) as well as even higher level abstractions (channels).
 
-BRPC gives you a simple event based interface and nothing else. No channels, no
-fallback, no complicated handshakes or feature testing over HTTP.
+BRPC works only with binary data and gives you a simple event based interface
+without anything else. No channels, no fallback, no complicated handshakes or
+feature testing over HTTP.
 
 ## Specification
 
