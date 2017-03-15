@@ -14,12 +14,12 @@ var socket;
 rpc.attach(server);
 
 rpc.on('socket', function(socket) {
-  socket.hook('foo', function(items) {
+  socket.hook('foo', function(data) {
     var result = new Buffer('bar');
-    return Promise.resolve([result]);
+    return Promise.resolve(result);
   });
-  socket.listen('bar', function(items) {
-    console.log('Received bar: ', items);
+  socket.listen('bar', function(data) {
+    console.log('Received bar: ', data);
   });
 });
 
@@ -29,11 +29,11 @@ socket = brpc.connect(8000);
 
 socket.on('open', function() {
   console.log('Calling foo...');
-  socket.call('foo', []).then(function(items) {
-    console.log('Response for foo: ', items);
+  socket.call('foo').then(function(data) {
+    console.log('Response for foo: ', data);
   });
   console.log('Sending bar...');
-  socket.fire('bar', [new Buffer('baz')]);
+  socket.fire('bar', new Buffer('baz'));
 });
 ```
 

@@ -57,17 +57,7 @@ remote node as misbehaving and disconnect.
 
 ### Message Payloads
 
-Serialization:
-
-``` c
-typedef struct {
-  varint_t item_size;
-  char payload_item[item_size];
-} payload_item_t;
-```
-
-Payloads are a collection of varint-prefixed byte arrays, using bitcoin varint
-encoding (otherwise known as "compact sizes"). These are _not_ base128 varints.
+Payload size is implied by the body size sent in the header.
 
 ## Messages
 
@@ -78,8 +68,7 @@ typedef struct {
   packet_header_t header;
   uint8_t event_str_size;
   char event[event_str_size];
-  uint8_t payload_item_count;
-  payload_item_t payload[payload_item_count];
+  char *payload;
 } event_packet_t;
 ```
 
@@ -96,8 +85,7 @@ typedef struct {
   uint8_t method_str_size;
   char method[method_str_size];
   uint32_t id;
-  uint8_t payload_item_count;
-  payload_item_t payload[payload_item_count];
+  char *payload;
 } call_packet_t;
 ```
 
@@ -113,8 +101,7 @@ received within a preset timeout, the client SHOULD ignore any future ACKs.
 typedef struct {
   packet_header_t header;
   uint32_t id;
-  uint8_t payload_item_count;
-  payload_item_t payload[payload_item_count];
+  char *payload;
 } ack_packet_t;
 ```
 
