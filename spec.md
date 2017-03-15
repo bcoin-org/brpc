@@ -36,16 +36,16 @@ Serialization:
 
 ``` c
 typedef struct {
-  uint32_t size;
   uint8_t type;
-  /* uint32_t checksum; */ /* FIXME */
+  uint32_t size;
+  uint32_t checksum;
 } packet_header_t;
 ```
 
-Every BRPC message consists of a 5 byte header which includes the body size
-(not including the 5 byte header itself), as well as the message type.
+Every BRPC message consists of a 9 byte header which includes the message type,
+the body size (not including the 9 byte header itself), as well as a 32 bit crc.
 
-There is no BRPC handshake, as the client and server both know to wait for a 5
+There is no BRPC handshake, as the client and server both know to wait for a 9
 byte header. If the message `type` is undefined, the client SHOULD treat the
 remote node as misbehaving and disconnect.
 
