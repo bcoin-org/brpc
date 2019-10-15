@@ -15,7 +15,7 @@ rpc.attach(server);
 
 rpc.on('socket', function(socket) {
   socket.hook('foo', function(data) {
-    var result = new Buffer('bar');
+    var result = Buffer.from('bar');
     return Promise.resolve(result);
   });
   socket.listen('bar', function(data) {
@@ -33,7 +33,7 @@ socket.on('open', function() {
     console.log('Response for foo: ', data);
   });
   console.log('Sending bar...');
-  socket.fire('bar', new Buffer('baz'));
+  socket.dispatch('bar', Buffer.from('baz'));
 });
 ```
 
